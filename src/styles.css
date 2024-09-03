@@ -178,13 +178,14 @@ body
 
 .newsBody
 {
-    width: 95%;
+    width: 100%;
     margin-top: 20px;
-    padding-left: 20px;
+    padding: 0 10px;
     color: black;
     display: flex;
     flex-direction: row;
     box-sizing: border-box;
+    justify-content: space-between;
 }
 
 .mainNews
@@ -204,10 +205,9 @@ body
 
 .otherNews
 {
-    width: 25%;
+    width: 28%;
     border: 2px solid;
     border-color: black;
-    margin-left: 10px;
     margin-bottom: 10px;
     padding: 10px;
     display: flex;

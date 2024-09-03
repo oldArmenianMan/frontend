@@ -35,7 +35,7 @@ const NewsList = () =>
         const fetchMessages = async () =>
             {
                 try {
-                    const response = await axios.get('https://3c3faa853f13.vps.myjino.ru:3010/messages');
+                    const response = await axios.get('https://3c3faa853f13.vps.myjino.ru:49324/messages');
                     setMessages(response.data);
                     console.log("Ответ: ", response.data)
                 } catch (error) {
