@@ -9,7 +9,7 @@ const MessageList = () =>
         const fetchMessages = async () =>
             {
                 try {
-                    const response = await axios.get('https://xn--b1aahbbaz5a0afbu7i.su:49324/messages');
+                    const response = await axios.get('https://xn--b1aahbbaz5a0afbu7i.su:49391/messages');
                     setMessages(response.data);
                     console.log("Ответ: ", response.data)
                 } catch (error) {
