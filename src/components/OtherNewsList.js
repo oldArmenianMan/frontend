@@ -10,7 +10,7 @@ const OtherNewsList = () =>
         const fetchMessages = async () =>
             {
                 try {
-                    const response = await axios.get('https://xn--b1aahbbaz5a0afbu7i.su:49324/othernews');
+                    const response = await axios.get('https://xn--b1aahbbaz5a0afbu7i.su:49397/othernews');
                     setMessages(response.data);
                     console.log("Ответ: ", response.data)
                 } catch (error) {
