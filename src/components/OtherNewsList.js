@@ -11,8 +11,8 @@ const OtherNewsList = () =>
             {
                 try {
                     const response = await axios.get('https://xn--b1aahbbaz5a0afbu7i.su:49397/othernews');
-                    setMessages(response.data);
-                    console.log("Ответ: ", response.data)
+                    setMessages(response.data.responseData);
+                    console.log("Ответ: ", response.data.responseData)
                 } catch (error) {
                     console.log('Error fetching messages:', error);
                 }
@@ -25,7 +25,7 @@ const OtherNewsList = () =>
         <>
             {messages.slice().reverse().map((message, index) =>
             <div key={index} className="factOtherNews">
-                <p>{message.responseData.text}</p>
+                <p>{message.text}</p>
             </div>
         )}
         </>

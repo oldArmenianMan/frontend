@@ -37,9 +37,9 @@ const NewsList = () =>
             {
                 try {
                     const response = await axios.get('https://xn--b1aahbbaz5a0afbu7i.su:49397/messages');
-                    setMessages(response.data);
+                    setMessages(response.data.responseData);
                     // setPhotoUrl(response.data.responseData.photo);
-                    console.log("Ответ: ", response.data)
+                    console.log("Ответ: ", response.data.responseData)
                 } catch (error) {
                     console.log('Error fetching messages:', error);
                 }
@@ -53,9 +53,9 @@ const NewsList = () =>
             {messages.slice().reverse().map((message, index) =>
             <div key={index} className="newsItem container">
                 <ReadMore>
-                    {message.responseData.text}
+                    {message.text}
                 </ReadMore>
-                <img src={messages.responseData.photoUrl} alt="Фото"></img>
+                <img src={messages.photoUrl} alt="Фото"></img>
             </div>
         )}
         </>
