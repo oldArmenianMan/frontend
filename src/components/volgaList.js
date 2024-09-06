@@ -4,6 +4,7 @@ import axios from "axios";
 const VolgaList = () =>
 {
     const [messages, setMessages] = useState([])
+    const [photoUrl, setPhotoUrl] = useState([]);
 
     useEffect(() => {
         const fetchMessages = async () =>
@@ -11,6 +12,7 @@ const VolgaList = () =>
                 try {
                     const response = await axios.get('https://xn--b1aahbbaz5a0afbu7i.su:49397/volga');
                     setMessages(response.data);
+                    setPhotoUrl(response.data.photo);
                     console.log("Ответ: ", response.data)
                 } catch (error) {
                     console.log('Error fetching messages:', error);
@@ -25,6 +27,7 @@ const VolgaList = () =>
             {messages.slice().reverse().map((message, index) =>
             <div key={index} className="prisoner">
                 <p>{message.text}</p>
+                <img src={photoUrl} alt="Фото"></img>
             </div>
         )}
         </>
