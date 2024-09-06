@@ -30,15 +30,15 @@ const ReadMore = ({children}) => {
 const NewsList = () =>
 {
     const [messages, setMessages] = useState([])
-    const [photoUrl, setPhotoUrl] = useState([]);
+    // const [photoUrl, setPhotoUrl] = useState([]);
 
     useEffect(() => {
         const fetchMessages = async () =>
             {
                 try {
                     const response = await axios.get('https://xn--b1aahbbaz5a0afbu7i.su:49397/messages');
-                    setMessages(response.data.responseData);
-                    setPhotoUrl(response.data.responseData.photo);
+                    setMessages(response.data);
+                    // setPhotoUrl(response.data.responseData.photo);
                     console.log("Ответ: ", response.data)
                 } catch (error) {
                     console.log('Error fetching messages:', error);
@@ -53,9 +53,9 @@ const NewsList = () =>
             {messages.slice().reverse().map((message, index) =>
             <div key={index} className="newsItem container">
                 <ReadMore>
-                    {message.text}
+                    {message.responseData.text}
                 </ReadMore>
-                <img src={photoUrl} alt="Фото"></img>
+                <img src={messages.responseData.photoUrl} alt="Фото"></img>
             </div>
         )}
         </>
