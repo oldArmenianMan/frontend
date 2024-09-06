@@ -11,7 +11,7 @@ const HistoryList = () =>
             {
                 try {
                     const response = await axios.get('https://xn--b1aahbbaz5a0afbu7i.su:49397/history');
-                    setMessages(response.data.responseData.text);
+                    setMessages(response.data.responseData);
                     setPhotoUrl(response.data.responseData.photo);
                     console.log("Ответ: ", response.data)
                 } catch (error) {
