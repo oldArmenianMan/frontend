@@ -3,8 +3,9 @@ import axios from "axios";
 
 const HistoryList = () =>
 {
-    const [messages, setMessages] = useState([])
-    // const [photoUrl, setPhotoUrl] = useState([]);
+    const [messages, setMessages] = useState([]);
+    const [photos, setPhotos] = useState([]);
+    const [videos, setVideos] = useState([]);
 
     useEffect(() => {
         const fetchMessages = async () =>
@@ -12,8 +13,8 @@ const HistoryList = () =>
                 try {
                     const response = await axios.get('https://xn--b1aahbbaz5a0afbu7i.su:49397/history');
                     setMessages(response.data.responseData);
-                    // setPhotoUrl(response.data.responseData.photo);
-                    console.log("Ответ: ", response.data.responseData)
+                    setPhotos(response.data[1]);
+                    setVideos(response.data[2]);
                 } catch (error) {
                     console.log('Error fetching messages:', error);
                 }
@@ -27,7 +28,9 @@ const HistoryList = () =>
             {messages.slice().reverse().map((message, index) =>
             <div key={index} className="fact">
                 <p>{message.text}</p>
-                <img src={messages.photoUrl} alt="Фото"></img>
+                <div>
+                    <img src={photos[index]} alt="Изображение"></img>
+                </div>
             </div>
         )}
         </>

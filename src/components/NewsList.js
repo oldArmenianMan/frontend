@@ -29,25 +29,17 @@ const ReadMore = ({children}) => {
 
 const NewsList = () =>
 {
-    const [messages, setMessages] = useState([])
-    // const [photoUrl, setPhotoUrl] = useState([]);
+    const [messages, setMessages] = useState([]);
     const [photos, setPhotos] = useState([]);
     const [videos, setVideos] = useState([]);
-
     useEffect(() => {
         const fetchMessages = async () =>
             {
                 try {
                     const response = await axios.get('https://xn--b1aahbbaz5a0afbu7i.su:49397/messages');
-                    const { text, photo, video } = response.data;
-
-                    setMessages(text || []);
-                    setPhotos(photo || []);
-                    setVideos(video || []);
-
-                console.log("Ответ от API:", response.data);
-                    // setPhotoUrl(response.data.responseData.photo);
-                    console.log("Ответ: ", response.data.responseData)
+                    setMessages(response.data[0]);
+                    setPhotos(response.data[1]);
+                    setVideos(response.data[2]);
                 } catch (error) {
                     console.log('Error fetching messages:', error);
                 }
@@ -60,29 +52,12 @@ const NewsList = () =>
         <>
             {messages.slice().reverse().map((message, index) =>
             <div key={index} className="newsItem container">
-                <ReadMore>
-                    {message}
-                </ReadMore>
-                <img src={messages.photoUrl} alt="Фото"></img>
+                    {message.text}
+                    <div>
+                        <img src={photos[index]} alt="Изображение"></img>
+                    </div>
             </div>
         )}
-            
-            <h2>Фотографии</h2>
-            {photos.slice().reverse().map((photoUrl, index) => (
-                <div key={index}>
-                    <img src={photoUrl} alt={`Фото ${index}`} />
-                </div>
-            ))}
-            
-            <h2>Видео</h2>
-            {videos.slice().reverse().map((videoUrl, index) => (
-                <div key={index}>
-                    <video controls width="250">
-                        <source src={videoUrl} type="video/mp4" />
-                        Ваш браузер не поддерживает тег видео.
-                    </video>
-                </div>
-            ))}
         </>
     );
 };
