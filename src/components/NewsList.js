@@ -53,8 +53,11 @@ const NewsList = () =>
             {messages.slice().reverse().map((message, index) =>
             <div key={index} className="newsItem container">
                     {message.text}
+                
                     <div>
-                        <img src={photos[index]} alt="Изображение"></img>
+                    {typeof photos[photos.length - (index + 1)] === 'string' && photos[photos.length - (index + 1)].trim() !== "" && (
+                        <img height="150px" width="auto" src={photos[photos.length - (index + 1)].linkP.replace(/^"|"$/g, '')} alt="Изображение" />
+                    )}
                     </div>
             </div>
         )}
