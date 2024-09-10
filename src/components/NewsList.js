@@ -52,13 +52,20 @@ const NewsList = () =>
         <>
             {messages.slice().reverse().map((message, index) =>
             <div key={index} className="newsItem container">
+                <div className="newsItemTextContainer">
                     {message.text}
-                
-                    <div>
-                    {typeof photos[photos.length - (index + 1)] === 'string' && photos[photos.length - (index + 1)].trim() !== "" && (
-                        <img height="150px" width="auto" src={photos[photos.length - (index + 1)].linkP.replace(/^"|"$/g, '')} alt="Изображение" />
+                </div>    
+                <div className="newsItemMediaContainer">
+                    {typeof(photos[photos.length - (index + 1)].linkP) === 'string'  && (
+                        <img  src={photos[photos.length - (index + 1)].linkP.replace(/^"|"$/g, '')} alt="Изображение" />
                     )}
-                    </div>
+                    {typeof(videos[videos.length - (index + 1)].linkV) === 'string'  && (
+                        <video controls preload="none" poster="./public/videoPreload.jpg">
+                            <source src={videos[videos.length - (index + 1)].linkV.replace(/^"|"$/g, '')} type="video/mp4" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
+                    )}
+                </div>
             </div>
         )}
         </>
