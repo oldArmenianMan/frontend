@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Caesar Dressing Cyrillic';
+    src: url('./fonts/caesardressingcyrillic.otf');
+}
+
 body
 {
     background-color: #d3d3d3;
@@ -37,7 +42,7 @@ body
 .header h2
 {
     margin: 0;
-
+    font-family: 'Caesar Dressing Cyrillic';
     font-size: 40px;
     text-align: center;
 }
@@ -200,23 +205,25 @@ body
     border-color: black;
     padding: 10px;
     margin-bottom: 10px;
+    box-sizing: border-box;
     white-space: pre-wrap;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    box-sizing: border-box;
 }
 
 .newsItemTextContainer
 {
-    width: 49%;
+    width: 90%;
 }
 
 .newsItemMediaContainer
 {
-    width: 49%;
+    width: 70%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: space-around;
     margin: 0 10px;
 }

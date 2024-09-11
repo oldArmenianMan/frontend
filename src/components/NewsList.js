@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from "react";
 import axios from "axios";
+import videoPreload from "./public/videoPreload.jpg"
 
 const ReadMoreStyle = 
 {
@@ -52,20 +53,20 @@ const NewsList = () =>
         <>
             {messages.slice().reverse().map((message, index) =>
             <div key={index} className="newsItem container">
-                <div className="newsItemTextContainer">
-                    {message.text}
-                </div>    
                 <div className="newsItemMediaContainer">
                     {typeof(photos[photos.length - (index + 1)].linkP) === 'string'  && (
                         <img  src={photos[photos.length - (index + 1)].linkP.replace(/^"|"$/g, '')} alt="Изображение" />
                     )}
                     {typeof(videos[videos.length - (index + 1)].linkV) === 'string'  && (
-                        <video controls preload="none" poster="./public/videoPreload.jpg">
+                        <video controls preload="none" poster={videoPreload}>
                             <source src={videos[videos.length - (index + 1)].linkV.replace(/^"|"$/g, '')} type="video/mp4" />
                             Ваш браузер не поддерживает видео.
                         </video>
                     )}
                 </div>
+                <div className="newsItemTextContainer">
+                    {message.text}
+                </div>  
             </div>
         )}
         </>

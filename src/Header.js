@@ -42,9 +42,9 @@ function Header()
                 <ul style={{ listStyleType: 'none'}} className={visible ? "visible" : "invisible"}>
                     <li><Link to="/"><span>Главная</span></Link></li>
                     <li><Link to="/command"><span>Командование</span></Link></li>
-                    <li><Link to="/heroes"><span>Наши герои</span></Link></li>
-                    <li><Link to="/uafamily"><span>Членам семей украинских <br/> военнослужащих</span></Link></li>
-                    <li><Link to="/mill-applied"><span>Военно-прикладное дело</span></Link></li>
+                    {/* <li><Link to="/heroes"><span>Наши герои</span></Link></li> */}
+                    {/* <li><Link to="/uafamily"><span>Членам семей украинских <br/> военнослужащих</span></Link></li> */}
+                    {/* <li><Link to="/mill-applied"><span>Военно-прикладное дело</span></Link></li> */}
                     <li><Link to="/history"><span>Этот день в истории</span></Link></li>
                     <li><Link to="/partners"><span>Партнеры</span></Link></li>
                 </ul>

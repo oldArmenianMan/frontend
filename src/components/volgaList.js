@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from "react";
 import axios from "axios";
-
+import videoPreload from "./public/videoPreload.jpg"
 const VolgaList = () =>
 {
     const [messages, setMessages] = useState([])
@@ -29,7 +29,17 @@ const VolgaList = () =>
             <div key={index} className="prisoner">
                 <p>{message.text}</p>
                 <div>
-                    <img src={photos[index]} alt="Изображение"></img>
+                <div className="newsItemMediaContainer">
+                    {typeof(photos[photos.length - (index + 1)].linkP) === 'string'  && (
+                        <img  src={photos[photos.length - (index + 1)].linkP.replace(/^"|"$/g, '')} alt="Изображение" />
+                    )}
+                    {typeof(videos[videos.length - (index + 1)].linkV) === 'string'  && (
+                        <video controls preload="none" poster={videoPreload}>
+                            <source src={videos[videos.length - (index + 1)].linkV.replace(/^"|"$/g, '')} type="video/mp4" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
+                    )}
+                </div>
                 </div>
             </div>
         )}
