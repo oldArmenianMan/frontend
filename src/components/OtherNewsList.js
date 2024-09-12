@@ -24,8 +24,7 @@ const OtherNewsList = () =>
     return (
         <>
             {messages.slice().reverse().map((message, index) =>
-            <div key={index} className="factOtherNews">
-                <p>{message.text}</p>
+            <div key={index} className="factOtherNews" dangerouslySetInnerHTML={{ __html: message.text }}>
             </div>
         )}
         </>

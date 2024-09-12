@@ -216,6 +216,7 @@ body
 .newsItemTextContainer
 {
     width: 90%;
+    margin-top: 10px;
 }
 
 .newsItemMediaContainer

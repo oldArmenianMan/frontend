@@ -64,8 +64,7 @@ const NewsList = () =>
                         </video>
                     )}
                 </div>
-                <div className="newsItemTextContainer">
-                    {message.text}
+                <div className="newsItemTextContainer" dangerouslySetInnerHTML={{ __html: message.text }}>
                 </div>  
             </div>
         )}

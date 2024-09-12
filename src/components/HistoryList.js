@@ -25,12 +25,12 @@ const HistoryList = () =>
         <>
             {messages.slice().reverse().map((message, index) =>
             <div key={index} className="fact">
-                <p>{message.text}</p>
                 <div>
                     {typeof photos[photos.length - (index + 1)] === 'string' && photos[photos.length - (index + 1)].trim() !== "" && (
                         <img height="150px" width="auto" src={photos[photos.length - (index + 1)].linkP.replace(/^"|"$/g, '')} alt="Изображение" />
                     )}
                 </div>
+                <div className="newsItemTextContainer" dangerouslySetInnerHTML={{ __html: message.text }}></div>
             </div>
         )}
         </>
