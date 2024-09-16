@@ -25,21 +25,21 @@ const VolgaList = () =>
 
     return (
         <>
-            {messages.slice().reverse().map((message, index) =>
+            {messages.slice().map((message, index) =>
             <div key={index} className="prisoner">
-                <p>{message.text}</p>
                 <div>
-                <div className="newsItemMediaContainer">
-                    {typeof(photos[photos.length - (index + 1)].linkP) === 'string'  && (
-                        <img  src={photos[photos.length - (index + 1)].linkP.replace(/^"|"$/g, '')} alt="Изображение" />
-                    )}
-                    {typeof(videos[videos.length - (index + 1)].linkV) === 'string'  && (
-                        <video controls preload="none" poster={videoPreload}>
-                            <source src={videos[videos.length - (index + 1)].linkV.replace(/^"|"$/g, '')} type="video/mp4" />
-                            Ваш браузер не поддерживает видео.
-                        </video>
-                    )}
-                </div>
+                    <div className="newsItemMediaContainer">
+                        {typeof(photos[index].linkP) === 'string'  && (
+                            <img  src={photos[index].linkP.replace(/^"|"$/g, '')} alt="Изображение" />
+                        )}
+                        {typeof(videos[index].linkV) === 'string'  && (
+                            <video controls preload="none" poster={videoPreload}>
+                                <source src={videos[index].linkV.replace(/^"|"$/g, '')} type="video/mp4" />
+                                Ваш браузер не поддерживает видео.
+                            </video>
+                        )}
+                    </div>
+                    <div className="newsItemTextContainer" dangerouslySetInnerHTML={{ __html: message.text }}></div> 
                 </div>
             </div>
         )}

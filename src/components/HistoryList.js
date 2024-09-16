@@ -23,13 +23,13 @@ const HistoryList = () =>
 
     return (
         <>
-            {messages.slice().reverse().map((message, index) =>
-            <div key={index} className="fact">
-                <div>
-                    {typeof photos[photos.length - (index + 1)] === 'string' && photos[photos.length - (index + 1)].trim() !== "" && (
-                        <img height="150px" width="auto" src={photos[photos.length - (index + 1)].linkP.replace(/^"|"$/g, '')} alt="Изображение" />
-                    )}
-                </div>
+            {messages.slice().map((message, index) =>
+            <div key={index} className="fact">                      
+                    <div className="newsItemMediaContainer">
+                        {typeof(photos[index].linkP) === 'string'  && (
+                            <img  src={photos[index].linkP.replace(/^"|"$/g, '')} alt="Изображение" />
+                        )}
+                    </div>
                 <div className="newsItemTextContainer" dangerouslySetInnerHTML={{ __html: message.text }}></div>
             </div>
         )}
