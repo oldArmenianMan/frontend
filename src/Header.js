@@ -7,7 +7,7 @@ import whiteBear from "./public/whiteBear.png"
 function Header()
 {
     const [headerStyle, setHeaderStyle] = useState({
-        height: '190px',
+        height: '200px',
         logoHeight: '180px',
     });
     const [visible, setVisible] = useState(false);

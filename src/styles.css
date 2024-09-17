@@ -16,7 +16,7 @@ body
     width: 100%;
     top: 0;
     padding: 20px;
-    height: var(--header-height, 190px);
+    height: var(--header-height, 200px);
     box-sizing: border-box;
     background: linear-gradient( rgb(0, 0, 0), #3e0018);
     /* background-color: #5b0023; */
