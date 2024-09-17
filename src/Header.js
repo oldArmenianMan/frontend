@@ -86,7 +86,7 @@ function Header()
                     style={{ height: headerStyle.logoHeight }}
                 />
             </div>
-            <div className="headerItemsWrapper">
+            <div className="headerItemsWrapper" id="opacityContacts">
                 <div className="headerContacts">
                     <ul>
                     <li><a href="tg://resolve?domain=Polar_nightbot">Поделиться историей</a></li>
