@@ -27,7 +27,7 @@ const HistoryList = () =>
             <div key={index} className="fact">                      
                     <div className="newsItemMediaContainer">
                         {typeof(photos[index].linkP) === 'string'  && (
-                            <img  src={photos[index].linkP.replace(/^"|"$/g, '')} alt="Изображение" />
+                            <img  src={`http://xn--b1aahbbaz5a0afbu7i.su/media/${photos[index].linkP.replace(/^"|"$/g, '').replace('file://localhost/telegram-bot-api/7411430341:AAE5RoM3qvRQ-gMHOQth2ha1uZdhEqTgBv0/photos/', '')}`} alt="Изображение" />
                         )}
                     </div>
                 <div className="newsItemTextContainer" dangerouslySetInnerHTML={{ __html: message.text }}></div>

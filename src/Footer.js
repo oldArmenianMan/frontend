@@ -6,7 +6,7 @@ function Footer()
     return(
         <div className="footer">
             <div className="footerBody">
-                <img src={WhiteBear} width={"150px"} alt="Логотип"/>
+                <img src={WhiteBear} className="footerIMG"  alt="Логотип"/>
                 <div className="footerContact">
                     <h3>Телеграм-канал Бесстрашных - мы воины ГВ "Север"!</h3>
                     <div className="footerDescription">
@@ -17,7 +17,7 @@ function Footer()
                     
                     <p>Наш телеграм: <a href="tg://resolve?domain=warriorofnorth">t.me/warriorofnorth</a></p>
                 </div>
-                <img src={Runa} width={"150px"} alt="Руна"/>
+                <img src={Runa} className="footerIMG"  alt="Руна"/>
             </div>
             <p className="developer">Developed by Studio 24</p>
 

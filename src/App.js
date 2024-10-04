@@ -7,6 +7,7 @@ import Partners from "./allPages/Partners";
 import UAFamily from "./allPages/UAFamily";
 import MillApp from "./allPages/MillApp";
 import History from "./allPages/HistoryToDay";
+import SVOMaps from "./allPages/SVOMaps";
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 import './styles.css'
@@ -25,6 +26,7 @@ function App() {
                     <Route path="/uafamily" element={<UAFamily/>} />
                     <Route path="/mill-applied" element={<MillApp/>} />
                     <Route path="/history" element={<History/>} />
+                    <Route path="/map" element={<SVOMaps/>} />
                   </Routes>
                 </div>
       </Router>
