@@ -21,7 +21,7 @@ const NewsList = () =>
         const fetchMessages = async () =>
             {
                 try {
-                    const response = await axios.get('https://xn--b1aahbbaz5a0afbu7i.su:49397/messages');
+                    const response = await axios.get('https://xn--b1aahbbaz5a0afbu7i.su:49307/messages');
                     setMessages(response.data[0]);
                     setPhotos(response.data[1]);
                     setVideos(response.data[2]);

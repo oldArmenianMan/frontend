@@ -11,7 +11,7 @@ const VolgaList = () =>
         const fetchMessages = async () =>
             {
                 try {
-                    const response = await axios.get('https://xn--b1aahbbaz5a0afbu7i.su:49397/volga');
+                    const response = await axios.get('https://xn--b1aahbbaz5a0afbu7i.su:49307/volga');
                     setMessages(response.data[0]);
                     setPhotos(response.data[1]);
                     setVideos(response.data[2]);
