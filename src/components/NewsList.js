@@ -17,6 +17,9 @@ const NewsList = () =>
     const [selectedImg, setSelectedImg] = useState('');
     const node = useRef(null);
 
+    const pathToPhotos = "/var/lib/telegram-bot-api/7411430341:AAE5RoM3qvRQ-gMHOQth2ha1uZdhEqTgBv0/photos";
+    const pathToVideos = "/var/lib/telegram-bot-api/7411430341:AAE5RoM3qvRQ-gMHOQth2ha1uZdhEqTgBv0/videos";
+
     useEffect(() => {
         const fetchMessages = async () =>
             {
@@ -108,8 +111,10 @@ const NewsList = () =>
                     <div className="newsItemMediaContainer">
                         {typeof(photos[index].linkP) === 'string'  && (
                             <img 
-                            src={`http://xn--b1aahbbaz5a0afbu7i.su/server/media/${photos[index].linkP.replace(/^"|"$/g, '').replace('file://localhost/telegram-bot-api/7411430341:AAE5RoM3qvRQ-gMHOQth2ha1uZdhEqTgBv0/photos/', '')}`} 
-                            onClick={() => showFullSizeIMG(`http://xn--b1aahbbaz5a0afbu7i.su/media/${photos[index].linkP.replace(/^"|"$/g, '').replace('file://localhost/telegram-bot-api/7411430341:AAE5RoM3qvRQ-gMHOQth2ha1uZdhEqTgBv0/photos/', '')}`)} 
+                            src={`${photos[index].linkP.replace(/^"|"$/g, '')}`}
+                            onclick = {() => showFullSizeIMG(`${photos[index].linkP.replace(/^"|"$/g, '')}`)}
+                            // src={`http://xn--b1aahbbaz5a0afbu7i.su/server/media/${photos[index].linkP.replace(/^"|"$/g, '').replace('file://localhost/telegram-bot-api/7411430341:AAE5RoM3qvRQ-gMHOQth2ha1uZdhEqTgBv0/photos/', '')}`} 
+                            // onClick={() => showFullSizeIMG(`http://xn--b1aahbbaz5a0afbu7i.su/media/${photos[index].linkP.replace(/^"|"$/g, '').replace('file://localhost/telegram-bot-api/7411430341:AAE5RoM3qvRQ-gMHOQth2ha1uZdhEqTgBv0/photos/', '')}`)} 
                             alt="Изображение" 
                             ref={node}/>
                         )}
@@ -121,8 +126,8 @@ const NewsList = () =>
                         )}
                         {typeof(videos[index].linkV) === 'string'  && (
                             <video controls preload="none" poster={videoPreload}>
-                                
-                                <source src={`http://xn--b1aahbbaz5a0afbu7i.su/server/media/${videos[index].linkV.replace(/^"|"$/g, '').replace('file://localhost/telegram-bot-api/7411430341:AAE5RoM3qvRQ-gMHOQth2ha1uZdhEqTgBv0/videos/', '')}`} type="video/mp4" />
+                                <source src={`${videos[index].linkV.replace(/^"|"$/g, '')}`} type="video/mp4" />
+                                {/* <source src={`http://xn--b1aahbbaz5a0afbu7i.su/server/media/${videos[index].linkV.replace(/^"|"$/g, '').replace('file://localhost/telegram-bot-api/7411430341:AAE5RoM3qvRQ-gMHOQth2ha1uZdhEqTgBv0/videos/', '')}`} type="video/mp4" /> */}
                                 Ваш браузер не поддерживает видео.
                             </video>
                         )}
