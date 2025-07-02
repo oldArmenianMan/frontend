@@ -65,18 +65,18 @@ const HistoryList = () => {
                     <div className="newsItemMediaContainer">
                         {typeof(photos[index]?.linkP) === 'string' && (
                             <img 
-                                src={`${photos[index].linkP.replace(/^"|"$/g, '')}`}
-                                // src={`http://xn--b1aahbbaz5a0afbu7i.su/media/${photos[index].linkP.replace(/^"|"$/g, '').replace('file://localhost/telegram-bot-api/7411430341:AAE5RoM3qvRQ-gMHOQth2ha1uZdhEqTgBv0/photos/', '')}`} 
+                                // src={`${photos[index].linkP.replace(/^"|"$/g, '')}`}
+                                src={`http://xn--b1aahbbaz5a0afbu7i.su/media/photos/${photos[index].linkP.replace(/^"|"$/g, '').replace('file://localhost/var/lib/telegram-bot-api/7411430341:AAE5RoM3qvRQ-gMHOQth2ha1uZdhEqTgBv0/photos/', '')}`} 
                                 alt="Изображение" 
                             />
                         )}
-                        <p>4 октября</p>
+                        <p>День в истории</p>
                     </div>
                     {expandedIndices.has(index) && (
                         <div className='newsItemTextContainer' dangerouslySetInnerHTML={{ __html: message.text }}></div>
                     )}
                     <button onClick={() => toggleExpand(index)} className="showMoreHistoryFactBtn">
-                        {expandedIndices.has(index) ? '<' : '>'}
+                        {expandedIndices.has(index) ? 'Свернуть' : 'Показать полностью'}
                     </button>
                 </div>
             ))}
